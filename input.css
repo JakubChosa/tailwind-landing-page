@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center gap-2 px-3 py-2 font-semibold text-neutral-200 cursor-pointer bg-sky-900 rounded-xl border-2 border-sky-900 hover:text-black hover:bg-transparent transition-all duration-300;
+  }
+  .btn-black {
+    @apply p-2 font-semibold bg-transparent uppercase border-2 border-black rounded-xl hover:ring-2 ring-black ring-offset-1;
+  }
+}
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  top: 0;
+  left: 0;
+  transform: rotate(0);
+  transition: all 0.5s;
+  @apply bg-slate-900;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+.cropped-background {
+  position: absolute;
+  left: 50%;
+  z-index: -10;
+  transform: translateX(-50%);
+  clip-path: circle(68% at 84% 52%);
+  background: white;
+  height: 100%;
+  width: 100%;
+}
+.circle {
+  width: clamp(250px, 100%, 500px);
+  height: clamp(250px, 100%, 500px);
+  clip-path: circle(50% at 50% 50%);
+}
+.bg-image {
+  background-image: url("../images/image-news.jpg");
+}
